@@ -58,3 +58,12 @@ docker compose up -d
 - To see the MongoDB database, visit: http://192.168.33.10:8081 (connection details can be found within the container logs).
 - If you reach a dead-end, go back to http://192.168.33.10:5056/viewContacts.
 
+## To kill the session, type in the terminal:
+```bash
+docker compose down
+```
+- exit the ssh using 'ctrl + c'
+- destroy the vm
+```bash
+vagrant destroy -f
+```
