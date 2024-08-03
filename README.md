@@ -52,6 +52,7 @@ docker compose up -d
 * Navigate to the main page in your browser: http://192.168.33.10:5056/viewContacts , and start playing around!
 
 ## Reminders
+- Inside the directory you'll find "hardcoded" folder which contains some PNG's and detailes to start testing the application. On the house.
 - Within the 'Deleted Contacts' table, the buttons aren't yet implemented.
 - To see the MySQL database, visit: http://192.168.33.10:5012 (connection details can be found within the container logs).
 - To see the MongoDB database, visit: http://192.168.33.10:8081 (connection details can be found within the container logs).
