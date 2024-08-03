@@ -1,0 +1,99 @@
+
+services:
+  # flask app container
+  contApp:
+    build: .
+    image: lanirelad/contacts-manager:1.4
+    ports:
+      - 5056:5056
+    environment:
+
+      - DB_USAGE=MONGO
+      # ======
+      # mySql
+      - DB_HOST=dbSql
+      - DB_USER=root
+      - DB_PASSWORD=admin
+      - DB_NAME=webpageusers
+      - DB_TABLE=users
+      # ======
+      # mongo
+      - MONGO_URI=mongodb://mongo:27017/
+      - ARCHIVE=archiveDB
+      - ARCHIVE_COL=archivedUsers
+      - MANAGER=webpageusers
+      - MANAGER_COL=users
+      # ======
+      # mongo Fake
+      - FAKE=fakeDB
+      - FAKE_COL=fakeCol
+
+    volumes:
+      - dbImages:/workingDir/static/profileImages
+    depends_on:
+        dbSql:
+          condition: service_healthy
+
+
+
+
+
+
+  # mysql container
+  dbSql:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=webpageusers
+    # ports (no need, same network)
+    volumes:
+      - sqlData:/var/lib/mysql
+    
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  
+  # mysql gui
+  phpmyadmin:
+    image: phpmyadmin
+    ports:
+      - 5012:80
+    environment:
+      - PMA_HOST=dbSql
+      - PMA_USER=root
+      - PMA_PASSWORD=admin
+    depends_on:
+        dbSql:
+          condition: service_healthy
+
+
+  # mongo container
+  mongo:
+    image: mongo:4.4.2
+    # ports (no need, same network)
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongo", "admin", "--eval", "db.stats()"]
+      interval: 10s
+      timeout: 5s
+      retries: 5  
+
+
+  # mongo gui
+  mongo-express:
+    image: mongo-express
+    ports:
+      - 8081:8081
+    depends_on:
+      mongo:
+        condition: service_healthy
+
+
+
+volumes:
+  sqlData:
+  dbImages:
+  mongo-data:
