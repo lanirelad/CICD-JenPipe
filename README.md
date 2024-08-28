@@ -42,7 +42,7 @@ cd /vagrant
 
 * Pull the docker image:
 ```bash
-docker pull lanirelad/contacts-manager:1.4
+docker pull lanirelad/contacts-manager:1.5
 ```
 * Run the docker compose YAML
 ```bash
