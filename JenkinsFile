@@ -79,7 +79,17 @@ pipeline
     {
         always 
         {
-            sh 'docker-compose down'
+            node {
+                sh 'docker-compose down'
+            }
+        }
+        success 
+        {
+            echo 'Pipeline succeeded!'
+        }
+        failure 
+        {
+            echo 'Pipeline failed.'
         }
     }
 }
