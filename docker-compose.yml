@@ -3,7 +3,7 @@ services:
   # flask app container
   contApp:
     build: .
-    image: lanirelad/contacts-manager:1.4
+    image: lanirelad/contacts-manager:1.5
     ports:
       - 5056:5056
     environment:
