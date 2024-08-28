@@ -79,10 +79,7 @@ pipeline
     {
         always 
         {
-            node 
-            {
-                sh 'docker-compose down'
-            }
+            sh 'docker-compose down'
         }
     }
 }
