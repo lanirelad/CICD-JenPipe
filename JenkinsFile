@@ -75,22 +75,19 @@ pipeline
         }
     }
 
-    post 
-    {
-        always 
-        {
-            node('any')
-            {
-                sh 'docker-compose down'
-            }
-        }
-        success 
-        {
-            echo 'Pipeline succeeded!'
-        }
-        failure 
-        {
-            echo 'Pipeline failed.'
-        }
-    }
+    // post 
+    // {
+    //     always 
+    //     {
+    //         sh 'docker-compose down'
+    //     }
+    //     success 
+    //     {
+    //         echo 'Pipeline succeeded!'
+    //     }
+    //     failure 
+    //     {
+    //         echo 'Pipeline failed.'
+    //     }
+    // }
 }
