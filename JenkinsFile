@@ -79,7 +79,8 @@ pipeline
     {
         always 
         {
-            node {
+            node('any')
+            {
                 sh 'docker-compose down'
             }
         }
