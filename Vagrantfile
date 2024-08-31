@@ -2,9 +2,9 @@ Vagrant.configure("2") do |config|
   # Set the boot timeout to 10 minutes (600 seconds)
   config.vm.boot_timeout = 600
   # First VM configuration
-  config.vm.define "docker04HW" do |desktop|
+  config.vm.define "CICD-Proj" do |desktop|
     desktop.vm.box = "aaronvonawesome/ubuntu-2404-cinnamon"# clean ubuntu with gui box
-    desktop.vm.hostname = "docker04HW"  # Set your desired hostname here
+    desktop.vm.hostname = "CICD-Proj"  # Set your desired hostname here
 
     # set boot timeout to 600 seconds
     #desktop.vm.boot_timeout = 600
@@ -21,12 +21,15 @@ Vagrant.configure("2") do |config|
     # Add a private network with a specific IP address
     desktop.vm.network "private_network", ip: "192.168.33.10"
 
+    # Add public network for internet access
+    desktop.vm.network "public_network"
+
     # Provisioning script for jenkins installation
     desktop.vm.provision "shell", path: "provisions/install-jenkins.sh"
     # installing docker
     desktop.vm.provision "shell", path: "provisions/install-docker.sh"
     # installing mysql
-    desktop.vm.provision "shell", path: "provisions/mysql-script.sh"
+    #desktop.vm.provision "shell", path: "provisions/mysql-script.sh"
 
     # installing python pip venv
     # desktop.vm.provision "shell", path: "provisions/python-pip-venv.sh"
@@ -47,7 +50,7 @@ Vagrant.configure("2") do |config|
     desktop.vm.provider "virtualbox" do |vb|
       vb.gui = false
       vb.memory = "1024"
-      vb.name = "docker04HW" 
+      vb.name = "CICD-Proj" 
       vb.customize ["modifyvm", :id, "--draganddrop", "bidirectional"]
       vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
     end

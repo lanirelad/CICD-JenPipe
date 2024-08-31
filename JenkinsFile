@@ -53,8 +53,10 @@ pipeline
 
         stage('Deploy with Docker Compose') 
         {
-            steps {
-                script {
+            steps 
+            {
+                script 
+                {
                     if (params.DATABASE_TYPE == 'SQL') 
                     {
                         // Set environment variables for MySQL
