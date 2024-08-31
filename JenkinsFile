@@ -22,7 +22,7 @@ pipeline
         {
             steps 
             {
-                git 'https://github.com/lanirelad/Contacts-Manager.git' .
+                git 'https://github.com/lanirelad/Contacts-Manager.git'
             }
         }
 
