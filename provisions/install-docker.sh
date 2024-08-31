@@ -28,6 +28,10 @@ echo "docker installation complete"
 sudo groupadd docker
 # Add your user to the docker group.
 sudo usermod -aG docker $USER
-#sudo usermod -aG docker jenkins
+sudo usermod -aG docker jenkins
 # Apply the new group membership without re-login
 sudo newgrp docker
+
+#---
+# install docker-compose
+sudo apt install docker-compose -y
