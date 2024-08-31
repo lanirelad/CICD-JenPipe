@@ -45,7 +45,7 @@ pipeline
                 {
                     docker.withRegistry('https://registry.hub.docker.com', 'lanirelad') 
                     {
-                        docker.image("${DOCKERHUB_CREDENTIALS_USR}/contacts-manager:1.5").push()
+                        docker.image("${DOCKERHUB_CREDENTIALS_USR}/contacts-manager:latest").push()
                     }
                 }
             }
@@ -77,19 +77,4 @@ pipeline
         }
     }
 
-    // post 
-    // {
-    //     always 
-    //     {
-    //         sh 'docker-compose down'
-    //     }
-    //     success 
-    //     {
-    //         echo 'Pipeline succeeded!'
-    //     }
-    //     failure 
-    //     {
-    //         echo 'Pipeline failed.'
-    //     }
-    // }
 }
