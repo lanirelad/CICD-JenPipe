@@ -22,7 +22,7 @@ pipeline
         {
             steps 
             {
-                git branch: 'main', url: 'https://github.com/lanirelad/Contacts-Manager.git'
+                git branch: 'main', url: 'https://github.com/lanirelad/CICD-JenPipe'
             }
         }
 
