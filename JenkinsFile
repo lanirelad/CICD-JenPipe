@@ -18,13 +18,13 @@ pipeline
 
     stages 
     {
-        stage('Clone Repository') 
-        {
-            steps 
-            {
-                git 'https://github.com/lanirelad/CICD-JenPipe.git'
-            }
-        }
+        // stage('Clone Repository') 
+        // {
+        //     steps 
+        //     {
+        //         git 'https://github.com/lanirelad/CICD-JenPipe.git'
+        //     }
+        // }
 
         stage('Build Docker Image') 
         {
