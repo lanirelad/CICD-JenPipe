@@ -1,6 +1,6 @@
 
 # Use the official Python base image
-FROM python:3.12-bullseye
+FROM python:3
 
 # Set the working directory in the container
 WORKDIR /workingDir
