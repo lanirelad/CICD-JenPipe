@@ -17,7 +17,7 @@ Easier. Friendly. Dockerized.
 
 ```bash
 
-git clone https://github.com/lanirelad/Dock04.git .
+git clone https://github.com/lanirelad/CICD-JenPipe.git .
 ```
 * Once finished, go ahead and launch the VM (That part can take a while):
 ```bash
@@ -42,7 +42,7 @@ cd /vagrant
 
 * Pull the docker image:
 ```bash
-docker pull lanirelad/contacts-manager:1.5
+docker pull lanirelad/contacts-manager:latest
 ```
 * Run the docker compose YAML
 ```bash
