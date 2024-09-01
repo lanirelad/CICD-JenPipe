@@ -6,10 +6,11 @@ Vagrant.configure("2") do |config|
     desktop.vm.box = "aaronvonawesome/ubuntu-2404-cinnamon"
     desktop.vm.hostname = "CICD-Proj"
 
-    # Add port forwarding for port 8080
+    # Add port forwarding for used ports
     config.vm.network "forwarded_port", guest: 8080, host: 8080
     config.vm.network "forwarded_port", guest: 5056, host: 5056
     config.vm.network "forwarded_port", guest: 5012, host: 5012
+    config.vm.network "forwarded_port", guest: 8081, host: 8081
     
     # Add a private network with a specific IP address
     desktop.vm.network "private_network", ip: "192.168.33.10"
