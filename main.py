@@ -296,6 +296,6 @@ def createFakedDB():
 
 
 if __name__ == "__main__":
-    app.run(port=5056 ) #debug=True, 
+    app.run(host="0.0.0.0", port=5056 ) #debug=True, 
     
     
