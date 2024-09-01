@@ -32,7 +32,7 @@ pipeline
             {
                 script 
                 {
-                    docker.build("${DOCKERHUB_CREDENTIALS_USR}/contacts-manager:latest")
+                     def image = docker.build("${DOCKERHUB_CREDENTIALS_USR}/contacts-manager:latest")
                 }
             }
         }

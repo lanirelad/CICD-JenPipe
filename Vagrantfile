@@ -22,7 +22,7 @@ Vagrant.configure("2") do |config|
 
     # Enable drag and drop
     desktop.vm.provider "virtualbox" do |vb|
-      vb.gui = false
+      vb.gui = true
       vb.memory = "1024"
       vb.name = "CICD-Proj" 
       vb.customize ["modifyvm", :id, "--draganddrop", "bidirectional"]
