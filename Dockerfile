@@ -12,9 +12,5 @@ ADD . /workingDir
 RUN pip install -r requirements.txt 
 
 
-# sleep before run for mysql to load
-#ENTRYPOINT ["sh", "-c", "sleep 10"]
-
-
-# Run the Python script
-ENTRYPOINT ["python", "main.py"]
+# sleep before run for mysql to load Run the Python script
+ENTRYPOINT ["sh", "-c", "sleep 10 && python main.py"]
